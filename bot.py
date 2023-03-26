@@ -28,7 +28,7 @@ async def on_message(message):
 
     if message.content.startswith("<"):
         cleanMsg = message.content[1:]
-        await message.channel.send("mith - " + str(eval(cleanMsg)) + "")
+        await message.channel.send("meeth - " + str(eval(cleanMsg)) + "")
 
 #log in
 client.run(token)
