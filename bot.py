@@ -1,6 +1,7 @@
 import discord
 from dotenv import load_dotenv
 import os
+from math import * 
 
 #creat intents
 intents = discord.Intents.default()
@@ -23,7 +24,11 @@ async def on_message(message):
         return
     if message.content.startswith("/"):
         cleanMsg = message.content[1:]
-        await message.channel.send("hihi :D -- " + cleanMsg + "")
+        await message.channel.send("hihi :D - " + cleanMsg + "")
+
+    if message.content.startswith("<"):
+        cleanMsg = message.content[1:]
+        await message.channel.send("mith - " + str(eval(cleanMsg)) + "")
 
 #log in
 client.run(token)
