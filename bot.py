@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 from math import * 
 
-#creat intents
+#create intents
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -29,6 +29,14 @@ async def on_message(message):
     if message.content.startswith("<"):
         cleanMsg = message.content[1:]
         await message.channel.send("meeth - " + str(eval(cleanMsg)) + "")
+
+    if message.content.startswith("`"):
+        cleanMsg = message.content[1:]
+        await message.channel.send("slay girlypop :nail_care_tone2:")
+
+    if message.content.startswith("^"):
+        cleanMsg = message.content[1:]
+        await message.channel.send("perioddtt")
 
 #log in
 client.run(token)
