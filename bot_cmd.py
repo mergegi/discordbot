@@ -4,6 +4,7 @@ import os
 from math import * 
 from discord.ext import commands
 import openai
+import time 
 
 load_dotenv("C_TOKEN")
 c_token = os.getenv("C_TOKEN")
@@ -15,6 +16,19 @@ messages=[
         {"role": "user", "content": "Can you give me hw answers :>?"},
         {"role": "assistant", "content": "ofc bestie :nail_care_tone2:"},
     ]
+
+# Goal: Reset the conversation after 5 minutes 
+
+chat_timestamp = time.time() #time of last chat message
+
+def resetConversationIfExpired(): 
+    global chat_timestamp
+    global messages
+    cur_time = time.time()
+    if cur_time - chat_timestamp > 300: #reset history message
+        messages = messages[:3] 
+        print("Resetting conversation history")
+    chat_timestamp = cur_time
 
 def chat(inp):
   messages.append({"role": "user", "content": inp})
